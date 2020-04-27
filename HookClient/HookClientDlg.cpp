@@ -17,8 +17,8 @@
 #define IOCTL_SEND_RESULT_TO_R0 (ULONG) CTL_CODE(FILE_DEVICE_UNKNOWN, 0x8001, METHOD_BUFFERED, FILE_ANY_ACCESS)
 
 
-#define DRIVER_NAME _T("PopupDrv")
-#define DRIVER_PATH _T(".\\PopupDrv.sys")
+#define DRIVER_NAME _T("HookDrv")
+#define DRIVER_PATH _T(".\\HookDrv.sys")
 
 HANDLE gh_Device = INVALID_HANDLE_VALUE;
 
@@ -28,7 +28,7 @@ HANDLE	g_hOverlappedEvent = NULL;
 
 BOOL LoadDriver(TCHAR* lpszDriverName, TCHAR* lpszDriverPath)
 {
-	TCHAR szDriverImagePath[256] = { 0 }/*_T("D:\\Popup\\PopupDrv.sys")*/;
+	TCHAR szDriverImagePath[256] = { 0 }/*_T("D:\\Popup\\HookDrv.sys")*/;
 	//得到完整的驱动路径
 	GetFullPathName(lpszDriverPath, 256, szDriverImagePath, NULL);
 
@@ -222,7 +222,7 @@ BeforeLeave:
 HANDLE OpenDevice()
 {
 	//测试驱动程序  
-	HANDLE hDevice = CreateFile(_T("\\\\.\\PopupDrv"),
+	HANDLE hDevice = CreateFile(_T("\\\\.\\HookDrv"),
 		GENERIC_WRITE | GENERIC_READ,
 		0,
 		NULL,

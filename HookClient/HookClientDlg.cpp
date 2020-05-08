@@ -9,7 +9,7 @@
 #include "afxdialogex.h"
 #include "PopupDlg.h"
 #include <winsvc.h>			//加载驱动的服务
-#include <winioctl.h>		//IOCTRL API
+#include <winioctl.h>		//IOCTRL API 
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
